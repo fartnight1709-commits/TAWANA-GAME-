@@ -1,5 +1,4 @@
 build/
-dist/
 __pycache__/
 *.pyc
 *.pyo
@@ -11,3 +10,5 @@ __pycache__/
 .env
 .venv
 venv/
+dist/*
+!dist/lockin.exe
