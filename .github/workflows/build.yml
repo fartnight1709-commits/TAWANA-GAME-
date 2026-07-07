@@ -5,17 +5,22 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: List all files for debugging
+        run: dir /s
+        shell: cmd
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install pyinstaller
+        run: pip install pyinstaller
+
       - name: Build with PyInstaller
-        # This command includes your image directly
         run: pyinstaller --onefile --noconsole --name=lockin --add-data "image.gif;." lockin.py
+
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
